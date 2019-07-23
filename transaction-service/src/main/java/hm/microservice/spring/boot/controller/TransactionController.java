@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/transactions")
+@RequestMapping("/")
 public class TransactionController {
 
     private TransactionService transactionService;
@@ -23,12 +23,12 @@ public class TransactionController {
         return transactionService.getAllTransactions();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("{id}")
     public Transaction getTransaction(@PathVariable(value = "id") Long transactionId) {
         return transactionService.getTransaction(transactionId);
     }
 
-    @GetMapping("/account/{aid}")
+    @GetMapping("account/{aid}")
     public List<Transaction> getAllTransactionsOfAccount(@PathVariable(value = "aid") Long accountId) {
         return transactionService.getAllTransactionsOfAccount(accountId);
     }

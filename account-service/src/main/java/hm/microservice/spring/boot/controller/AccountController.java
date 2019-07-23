@@ -10,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
 import java.util.List;
 
 @RestController
-@RequestMapping("/accounts")
+@RequestMapping("/")
 public class AccountController {
 
     private AccountService accountService;
@@ -28,14 +28,14 @@ public class AccountController {
         return accountService.getAllAccounts();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("{id}")
     public Account getAccount(@PathVariable(value = "id") Long accountId) {
         return accountService.getAccount(accountId);
     }
 
-    @GetMapping("/{id}/transactions")
+    @GetMapping("{id}/transactions")
     public List<Transaction> getAccountTransactions(@PathVariable(value = "id") Long accountId) {
-        return restTemplate.getForObject("http://transaction-service/transactions/account/" + accountId, List.class);
+        return restTemplate.getForObject("http://transaction-service/account/" + accountId, List.class);
     }
 
     @PostMapping("")
