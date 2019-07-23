@@ -20,7 +20,6 @@
 
     <modules>
         <module>eureka-server</module>
-        <module>image-service</module>
     </modules>
 
     <dependencies>
