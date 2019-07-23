@@ -28,6 +28,11 @@ public class TransactionController {
         return transactionService.getTransaction(transactionId);
     }
 
+    @GetMapping("/account/{aid}")
+    public List<Transaction> getAllTransactionsOfAccount(@PathVariable(value = "aid") Long accountId) {
+        return transactionService.getAllTransactionsOfAccount(accountId);
+    }
+
     @PostMapping("")
     public Transaction addTransaction(@RequestBody Transaction transaction) {
         return transactionService.addAccount(transaction);
